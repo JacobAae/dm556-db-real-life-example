@@ -1,1 +1,36 @@
 = Demo of Database Access Tools
+
+This project has 3 elements
+
+* PostgreSQL Database as Docker-compose file
+* Grails demo application with Gorm
+* Ratpack demo app with Jooq
+
+Requirements are:
+
+* docker & docker-compose
+* Java
+
+
+== PostgreSQL
+
+Go to folder `postgresql-docker` and run
+
+ docker-compose up
+
+== Grails app
+
+Go to folder `dm556demo` and run
+
+ ./grailsw run-app
+
+Visit localhost:8080
+
+== Ratpack app
+
+Go to folder `jooqdemo` and run:
+
+ ./gradlew jooqCodegen
+ ./gradlew run
+
+Visit localhost:5050
