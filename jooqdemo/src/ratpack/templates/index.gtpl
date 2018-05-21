@@ -2,7 +2,7 @@ yieldUnescaped '<!DOCTYPE html>'
 html {
   head {
     meta(charset:'utf-8')
-    title("Ratpack: $title")
+    title("Jooq example")
 
     meta(name: 'apple-mobile-web-app-title', content: 'Ratpack')
     meta(name: 'description', content: '')
@@ -12,13 +12,8 @@ html {
   }
   body {
     header {
-      h1 'Ratpack'
-      p 'Simple, lean &amp; powerful HTTP apps'
-    }
-
-    section {
-      h2 title
-      p 'This is the main page for your Ratpack app.'
+      h1 'Jooq Sample'
+      p "Result: $result"
     }
 
     footer {}

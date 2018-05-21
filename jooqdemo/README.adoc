@@ -1,0 +1,11 @@
+= Jooq Demo with Ratpack
+
+== Generate Database Classes
+
+ ./gradlew jooqCodegen
+
+== Run the application
+
+ ./gradlew run
+
+Remember to have the database running from the docker-compose file

@@ -5,6 +5,9 @@ buildscript {
   dependencies {
     classpath "io.ratpack:ratpack-gradle:1.5.4"
     classpath "com.github.jengelman.gradle.plugins:shadow:1.2.4"
+    classpath "org.postgresql:postgresql:42.2.2"
+    classpath 'org.jooq:jooq-codegen:3.10.6'
+
   }
 }
 
@@ -22,5 +25,37 @@ dependencies {
   // See here for a non blocking appender http://logging.apache.org/log4j/2.x/manual/async.html
   runtime 'org.slf4j:slf4j-simple:1.7.25'
 
+  compile ratpack.dependency('hikari')
+  compile 'org.postgresql:postgresql:42.2.2'
+
+  compile 'org.jooq:jooq:3.10.6'
+
   testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
+}
+
+import org.jooq.util.jaxb.*
+import org.jooq.util.*
+
+task jooqCodegen {
+  doLast {
+    Configuration configuration = new Configuration()
+            .withJdbc(new Jdbc()
+            .withDriver("org.postgresql.Driver")
+            .withUrl("jdbc:postgresql://localhost:5432/demodb")
+            .withUser('demo')
+            .withPassword('demopw')
+    )
+            .withGenerator(new Generator()
+            .withDatabase(new Database()
+            .withName("org.jooq.util.postgres.PostgresDatabase")
+            .withIncludes(".*")
+            .withExcludes("")
+            .withInputSchema("public")
+    )
+            .withTarget(new Target()
+            .withDirectory("$projectDir/src/main/groovy")
+            .withPackageName("jooq"))
+    )
+    GenerationTool.generate(configuration)
+  }
 }
