@@ -1,0 +1,17 @@
+= POstgreSQL Database with Seeded Data
+
+== Running it
+
+ docker-compose up
+
+== Database
+
+* User: demo
+* Password: demopw
+* DB: demodb
+
+== Connection via Psql
+
+ psql -h localhost -p 5435 -U demo demodb
+
+Note port is 5435 to not conflict with permanent DB service
