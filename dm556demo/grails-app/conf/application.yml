@@ -109,8 +109,11 @@ environments:
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
-            dbCreate: none
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            dbCreate: update
+            driverClassName: org.postgresql.Driver
+            username: demo
+            password: demopw
+            url: jdbc:postgresql://localhost:5435/demodb
             properties:
                 jmxEnabled: true
                 initialSize: 5
