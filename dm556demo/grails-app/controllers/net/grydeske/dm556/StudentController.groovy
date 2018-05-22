@@ -10,6 +10,13 @@ class StudentController {
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
+
+        println Student.findAllByStudentIdInList(['123','124','2l'])
+
+        println Enrolment.findAllByCource( Cource.findByName('MM01'))
+
+
+
         params.max = Math.min(max ?: 10, 100)
         respond studentService.list(params), model:[studentCount: studentService.count()]
     }

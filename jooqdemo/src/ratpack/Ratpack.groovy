@@ -33,6 +33,7 @@ ratpack {
         println dbResult
         render groovyMarkupTemplate("index.gtpl", result: dbResult)
       }
+      
     }
 
     files { dir "public" }

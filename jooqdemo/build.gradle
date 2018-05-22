@@ -41,7 +41,7 @@ task jooqCodegen {
     Configuration configuration = new Configuration()
             .withJdbc(new Jdbc()
             .withDriver("org.postgresql.Driver")
-            .withUrl("jdbc:postgresql://localhost:5432/demodb")
+            .withUrl("jdbc:postgresql://localhost:5435/demodb")
             .withUser('demo')
             .withPassword('demopw')
     )

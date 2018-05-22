@@ -21,6 +21,7 @@ class DbRepository {
     Promise<String> accessDb() {
         Blocking.get {
             try {
+                println database.selectFrom(jooq.Tables.STUDENT).where(jooq.Tables.STUDENT.ID.equal(2l)).fetchAny()
                 database.selectOne().queryTimeout(100).fetch()
                 "Here we can return results"
             } catch (Exception e) {
